@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(test)
+project(ExampleButton)
 
 add_executable(${PROJECT_NAME} WIN32 main.cxx)
 

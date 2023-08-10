@@ -5,6 +5,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(winui)
 
+option(WINUI_EXAMPLES "Build winui examples" OFF)
+
 file(GLOB 
     SRC
     src/frame.cxx
@@ -60,7 +62,9 @@ install(TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
-add_subdirectory(test)
+if (WINUI_EXAMPLES)
+  add_subdirectory(examples)
+endif()
 
 macro(msvc_group curdir)
   file(GLOB children RELATIVE ${PROJECT_SOURCE_DIR}/${curdir} ${PROJECT_SOURCE_DIR}/${curdir}/*)
