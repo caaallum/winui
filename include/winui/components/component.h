@@ -8,7 +8,7 @@ namespace winui {
 	public:
 		Component(util::Vector2i size, util::Vector2i position);
 
-		virtual void Draw(HWND hwndFrame) = 0;
+		virtual void Draw(HWND hwndWindow) = 0;
 
 		void SetPosition(util::Vector2i pos);
 

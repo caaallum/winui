@@ -14,14 +14,14 @@ winui::Label::Label(const std::string& text, util::Vector2i size, util::Vector2i
 }
 
 void
-winui::Label::Draw(HWND hwndFrame) {
+winui::Label::Draw(HWND hwndWindow) {
 	m_hwnd = CreateWindow(
 		"LABEL",
 		m_text.c_str(),
 		WS_VISIBLE | WS_CHILD,
 		m_position.x, m_position.y, 
 		m_size.x, m_size.y,
-		hwndFrame,
+		hwndWindow,
 		NULL,
 		HINST_THISCOMPONENT,
 		NULL

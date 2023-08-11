@@ -75,14 +75,14 @@ winui::ComboBox::AddOptions(const std::vector<std::string>& options) {
 }
 
 void
-winui::ComboBox::Draw(HWND hwndFrame) {
+winui::ComboBox::Draw(HWND hwndWindow) {
 	m_hwnd = CreateWindow(
 		WC_COMBOBOX,
 		"",
 		CBS_DROPDOWN | CBS_HASSTRINGS | WS_CHILD | WS_OVERLAPPED | WS_VISIBLE | WS_VSCROLL,
 		m_position.x, m_position.y,
 		m_size.x, m_size.y,
-		hwndFrame,
+		hwndWindow,
 		NULL,
 		HINST_THISCOMPONENT,
 		NULL

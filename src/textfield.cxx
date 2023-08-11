@@ -45,18 +45,18 @@ winui::TextField::Clear() {
 
 
 void
-winui::TextField::Draw(HWND hwndFrame) {
+winui::TextField::Draw(HWND hwndWindow) {
 	m_hwnd = CreateWindow(
 		"EDIT",
 		NULL,
 		WS_VISIBLE | WS_BORDER | WS_CHILD | WS_TABSTOP,
 		m_position.x, m_position.y,
 		m_size.x, m_size.y,
-		hwndFrame,
+		hwndWindow,
 		NULL,
 		HINST_THISCOMPONENT,
 		NULL
 	);
 
-	SetWindowLongPtr(hwndFrame, GWLP_USERDATA, (LONG_PTR)this);
+	SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);
 }

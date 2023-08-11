@@ -15,6 +15,7 @@ file(GLOB
     src/label.cxx
     src/textfield.cxx
     src/combobox.cxx
+    src/checkbox.cxx
 
     src/dllmain.cxx
 )
@@ -35,6 +36,7 @@ file(GLOB
     include/winui/components/label.h
     include/winui/components/textfield.h
     include/winui/components/combobox.h
+    include/winui/components/checkbox.h
     
     include/winui/util/vector2.h
 )

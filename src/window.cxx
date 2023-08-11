@@ -5,6 +5,7 @@
 #include <winui/components/component.h>
 #include <winui/components/button.h>
 #include <winui/components/combobox.h>
+#include <winui/components/checkbox.h>
 
 constexpr char* CLASS_NAME = "winuiApplication";
 
@@ -55,6 +56,14 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 			if (winui::ComboBox* comboBox = dynamic_cast<winui::ComboBox*>(com)) {
 				if (comboBox->m_event_listener) {
 					comboBox->m_event_listener();
+				}
+			}
+		}
+
+		if (HIWORD(wParam) == BN_CLICKED) {
+			if (winui::CheckBox* checkBox = dynamic_cast<winui::CheckBox*>(com)) {
+				if (checkBox->m_event_listener) {
+					checkBox->m_event_listener();
 				}
 			}
 		}

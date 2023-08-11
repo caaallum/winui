@@ -28,14 +28,14 @@ winui::Button::GetTitle() const {
 }
 
 void 
-winui::Button::Draw(HWND hwndFrame) {
+winui::Button::Draw(HWND hwndWindow) {
 	m_hwnd = CreateWindow(
 		"BUTTON",
 		m_title.c_str(),
 		WS_VISIBLE | WS_TABSTOP | WS_CHILD | BS_PUSHBUTTON,
 		m_position.x, m_position.y,
 		m_size.x, m_size.y,
-		hwndFrame,
+		hwndWindow,
 		NULL,
 		HINST_THISCOMPONENT,
 		NULL
