@@ -9,6 +9,7 @@
 #include <winui/components/frame.h>
 #include <winui/components/button.h>
 #include <winui/components/label.h>
-#include <winui/components/text_field.h>
+#include <winui/components/textfield.h>
+#include <winui/components/combobox.h>
 
 #endif /* __WINUI_H */

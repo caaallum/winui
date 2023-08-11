@@ -13,7 +13,8 @@ file(GLOB
     src/component.cxx
     src/button.cxx
     src/label.cxx
-    src/text_field.cxx
+    src/textfield.cxx
+    src/combobox.cxx
 
     src/dllmain.cxx
 )
@@ -32,7 +33,8 @@ file(GLOB
     include/winui/components/component.h
     include/winui/components/button.h
     include/winui/components/label.h
-    include/winui/components/text_field.h
+    include/winui/components/textfield.h
+    include/winui/components/combobox.h
     
     include/winui/util/vector2.h
 )
