@@ -1,10 +1,10 @@
-#ifndef __FRAME_H
-#define __FRAME_H
+#ifndef __WINDOW_H
+#define __WINDOW_H
 
 namespace winui {
-    class WINUI_API Frame {
+    class WINUI_API Window {
     public:
-        Frame(HINSTANCE instance, const std::string &title, util::Vector2i size);
+        Window(HINSTANCE instance, const std::string &title, util::Vector2i size);
 
         void Show();
 
@@ -22,4 +22,4 @@ namespace winui {
     };
 }
 
-#endif /* __FRAME_H */
+#endif /* __WINDOW_H */

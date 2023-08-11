@@ -9,7 +9,7 @@ option(WINUI_EXAMPLES "Build winui examples" OFF)
 
 file(GLOB 
     SRC
-    src/frame.cxx
+    src/window.cxx
     src/component.cxx
     src/button.cxx
     src/label.cxx
@@ -29,7 +29,7 @@ file(GLOB
     include/winui/stdafx.h
     include/winui/targetver.h
     
-    include/winui/components/frame.h
+    include/winui/components/window.h
     include/winui/components/component.h
     include/winui/components/button.h
     include/winui/components/label.h

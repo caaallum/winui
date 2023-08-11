@@ -1,6 +1,6 @@
 #include <winui/stdafx.h>
 #include <winui/util/vector2.h>
-#include <winui/components/frame.h>
+#include <winui/components/window.h>
 
 #include <winui/components/component.h>
 #include <winui/components/button.h>
@@ -8,7 +8,7 @@
 
 constexpr char* CLASS_NAME = "winuiApplication";
 
-winui::Frame::Frame(HINSTANCE instance, const std::string &title, util::Vector2i size) :
+winui::Window::Window(HINSTANCE instance, const std::string &title, util::Vector2i size) :
 	m_instance(instance),
     m_title(title),
 	m_size(size),
@@ -18,7 +18,7 @@ winui::Frame::Frame(HINSTANCE instance, const std::string &title, util::Vector2i
 }
 
 HWND
-winui::Frame::GetHandle() const {
+winui::Window::GetHandle() const {
 	return m_hwnd;
 }
 
@@ -66,7 +66,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 }
 
 void 
-winui::Frame::InitWindow() {
+winui::Window::InitWindow() {
 	m_wc = { 0 };
 
 	m_wc.cbSize = sizeof(m_wc);
@@ -103,7 +103,7 @@ winui::Frame::InitWindow() {
 }
 
 void
-winui::Frame::Show() {
+winui::Window::Show() {
     ShowWindow(m_hwnd, 1);
 
 	MSG msg = { 0 };
