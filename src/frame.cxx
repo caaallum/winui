@@ -4,6 +4,7 @@
 
 #include <winui/components/component.h>
 #include <winui/components/button.h>
+#include <winui/components/combobox.h>
 
 constexpr char* CLASS_NAME = "winuiApplication";
 
@@ -47,6 +48,14 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 		if (winui::Button* button = dynamic_cast<winui::Button*>(com)) {
 			if (button->m_event_listener) {
 				button->m_event_listener();
+			}
+		}
+
+		if (HIWORD(wParam) == CBN_SELCHANGE) {
+			if (winui::ComboBox* comboBox = dynamic_cast<winui::ComboBox*>(com)) {
+				if (comboBox->m_event_listener) {
+					comboBox->m_event_listener();
+				}
 			}
 		}
 	}
