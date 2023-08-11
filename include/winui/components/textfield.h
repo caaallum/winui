@@ -1,5 +1,5 @@
-#ifndef __TEXT_FIELD_H
-#define __TEXT_FIELD_H
+#ifndef __TEXTFIELD_H
+#define __TEXTFIELD_H
 
 namespace winui {
 	class WINUI_API TextField : public Component {
@@ -8,8 +8,10 @@ namespace winui {
 
 		TextField(util::Vector2i size, util::Vector2i position);
 
+		std::string GetValue() const;
+
 		void Draw(HWND hwndFrame) override;
 	};
 }
 
-#endif /* __TEXT_FIELD_H */
+#endif /* __TEXTFIELD_H */

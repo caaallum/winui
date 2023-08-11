@@ -1,6 +1,6 @@
 #include <winui/stdafx.h>
 #include <winui/components/component.h>
-#include <winui/components/text_field.h>
+#include <winui/components/textfield.h>
 
 winui::TextField::TextField() :
 	Component({ 100, 20 }, { 0, 0 }) {
@@ -10,6 +10,21 @@ winui::TextField::TextField() :
 winui::TextField::TextField(util::Vector2i size, util::Vector2i position) :
 	Component(size, position) {
 }
+
+std::string 
+winui::TextField::GetValue() const {
+	if (!m_hwnd) {
+		return {};
+	}
+
+	DWORD length = GetWindowTextLength(m_hwnd) + 1;
+
+	std::string str(length, 0);
+	GetWindowText(m_hwnd, &str[0], length);
+
+	return str;
+}
+
 
 void
 winui::TextField::Draw(HWND hwndFrame) {
