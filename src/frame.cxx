@@ -24,18 +24,6 @@ winui::Frame::GetHandle() const {
 LRESULT CALLBACK winui::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     switch (uMsg)
     {
-	case WM_TIMER:
-	{
-		
-		//winui::Frame* frame = (winui::Frame*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
-		//std::stringstream ss;
-		//ss << "Components " << frame->GetComponents().size() << '\n';
-		//OutputDebugString(ss.str().c_str());
-		//for (auto& c : frame->GetComponents()) {
-		//	c.Draw(hwnd);
-		//}
-	}
-		return 0;
 	case WM_CLOSE:
 		DestroyWindow(hwnd);
 		break;
@@ -43,12 +31,6 @@ LRESULT CALLBACK winui::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM l
         PostQuitMessage(0);
         return 0;
 
-    case WM_CREATE:
-    {
-
-
-    }
-    break;
     case WM_PAINT:
 	{
         PAINTSTRUCT ps;
@@ -60,8 +42,7 @@ LRESULT CALLBACK winui::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM l
 
 	case WM_COMMAND:
 	{
-		LONG_PTR user_data = GetWindowLongPtr(hwnd, GWLP_USERDATA);
-		winui::Component* com = (winui::Component*)user_data;
+		winui::Component* com = (winui::Component*)GetWindowLongPtr((HWND)lParam, GWLP_USERDATA);
 
 		if (winui::Button* button = dynamic_cast<winui::Button*>(com)) {
 			if (button->m_event_listener) {
@@ -109,7 +90,7 @@ winui::Frame::InitWindow() {
 
 	SetTimer(m_hwnd, 0, 100, (TIMERPROC)NULL);
 
-	//SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);
+	SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);
 }
 
 void

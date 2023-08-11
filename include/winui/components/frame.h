@@ -2,8 +2,6 @@
 #define __FRAME_H
 
 namespace winui {
-    LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-
     class WINUI_API Frame {
     public:
         Frame(HINSTANCE instance, const std::string &title, util::Vector2i size);

@@ -2,18 +2,6 @@
 #include <winui/components/component.h>
 #include <winui/components/button.h>
 
-#include <winui/components/frame.h>
-
-LRESULT 
-CALLBACK ButtonProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
-
-	if (uMsg == WM_LBUTTONDOWN) {
-		OutputDebugString("Clicked\n");
-	}
-
-	return CallWindowProc(winui::WindowProc, hwnd, uMsg, wParam, lParam);
-}
-
 winui::Button::Button(const std::string& title) :
 	m_title(title),
 	Component({ 100, 20 }, { 0, 0 }) {
@@ -53,6 +41,5 @@ winui::Button::Draw(HWND hwndFrame) {
 		NULL
 	);
 
-	//SetWindowLongPtr(m_hwnd, GWLP_WNDPROC, (LONG_PTR)&ButtonProc);
-	//SetWindowLongPtr(hwndFrame, GWLP_USERDATA, (LONG_PTR)this);
+	SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);
 }
