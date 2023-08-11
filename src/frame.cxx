@@ -21,7 +21,7 @@ winui::Frame::GetHandle() const {
 	return m_hwnd;
 }
 
-LRESULT CALLBACK winui::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     switch (uMsg)
     {
 	case WM_CLOSE:
