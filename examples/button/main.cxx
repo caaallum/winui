@@ -12,5 +12,11 @@ WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ PSTR pC
     });
 	button.Draw(frame.GetHandle());
 
+	winui::Button button2("Click me", { 100, 20 }, { 150, 50 });
+	button2.AddEventListener([]() {
+		MessageBox(NULL, "Button2 Pressed", "Alert", MB_ICONINFORMATION | MB_OK);
+		});
+	button2.Draw(frame.GetHandle());
+
 	frame.Show();
 }
