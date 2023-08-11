@@ -20,6 +20,7 @@ WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ PSTR pC
 	winui::Button add("Add", { 100, 25 }, { 190, 10 });
 	add.AddEventListener([]() {
 		combo_box.AddOption(text_field.GetValue());
+		text_field.Clear();
 		});
 	add.Draw(frame.GetHandle());
 

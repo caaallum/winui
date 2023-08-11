@@ -8,7 +8,11 @@ namespace winui {
 
 		TextField(util::Vector2i size, util::Vector2i position);
 
+		void SetValue(const std::string& value);
+
 		std::string GetValue() const;
+
+		void Clear();
 
 		void Draw(HWND hwndFrame) override;
 	};

@@ -11,6 +11,15 @@ winui::TextField::TextField(util::Vector2i size, util::Vector2i position) :
 	Component(size, position) {
 }
 
+void
+winui::TextField::SetValue(const std::string& value) {
+	if (!m_hwnd) {
+		return;
+	}
+
+	SetWindowText(m_hwnd, value.c_str());
+}
+
 std::string 
 winui::TextField::GetValue() const {
 	if (!m_hwnd) {
@@ -23,6 +32,15 @@ winui::TextField::GetValue() const {
 	GetWindowText(m_hwnd, &str[0], length);
 
 	return str;
+}
+
+void
+winui::TextField::Clear() {
+	if (!m_hwnd) {
+		return;
+	}
+
+	SetValue("");
 }
 
 
