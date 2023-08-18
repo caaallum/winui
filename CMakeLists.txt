@@ -16,6 +16,8 @@ file(GLOB
     src/textfield.cxx
     src/combobox.cxx
     src/checkbox.cxx
+    src/textarea.cxx
+    src/datepicker.cxx
 
     src/dllmain.cxx
 )
@@ -37,6 +39,8 @@ file(GLOB
     include/winui/components/textfield.h
     include/winui/components/combobox.h
     include/winui/components/checkbox.h
+    include/winui/components/textarea.h
+    include/winui/components/datepicker.h
     
     include/winui/util/vector2.h
 )

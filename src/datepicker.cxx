@@ -17,63 +17,48 @@
 
 #include <winui/stdafx.h>
 #include <winui/components/component.h>
-#include <winui/components/textfield.h>
+#include <winui/components/datepicker.h>
+#include <CommCtrl.h>
 
-winui::TextField::TextField() :
-	Component({ 100, 20 }, { 0, 0 }) {
+winui::DatePicker::DatePicker() :
+	Component({ 20, 50 }, { 0,0 }) {
 
 }
 
-winui::TextField::TextField(util::Vector2i size, util::Vector2i position) :
+winui::DatePicker::DatePicker(util::Vector2i size, util::Vector2i position) :
 	Component(size, position) {
+
+}
+
+INT_PTR Dlgproc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+	return FALSE;
 }
 
 void
-winui::TextField::SetValue(const std::string& value) {
-	if (!m_hwnd) {
-		return;
+winui::DatePicker::Draw(HWND hwndWindow) {
+	if (!InitControl(ICC_DATE_CLASSES)) {
+		OutputDebugString("Failed to init date control\n");
 	}
 
-	SetWindowText(m_hwnd, value.c_str());
-}
-
-std::string 
-winui::TextField::GetValue() const {
-	if (!m_hwnd) {
-		return {};
+	m_hwndDlg = CreateDialog(HINST_THISCOMPONENT, MAKEINTRESOURCE(RT_DIALOG), hwndWindow, Dlgproc);
+	if (!m_hwndDlg) {
+		OutputDebugString(TEXT("Failed to create datepicker dialog\n"));
 	}
 
-	DWORD length = GetWindowTextLength(m_hwnd) + 1;
-
-	std::string str(length, 0);
-	GetWindowText(m_hwnd, &str[0], length);
-
-	return str;
-}
-
-void
-winui::TextField::Clear() {
-	if (!m_hwnd) {
-		return;
-	}
-
-	SetValue("");
-}
-
-
-void
-winui::TextField::Draw(HWND hwndWindow) {
-	m_hwnd = CreateWindow(
-		"",
-		NULL,
-		WS_VISIBLE | WS_BORDER | WS_CHILD | WS_TABSTOP,
+	m_hwnd = CreateWindowEx(0,
+		DATETIMEPICK_CLASS,
+		TEXT("DateTime"),
+		WS_BORDER | WS_CHILD | WS_VISIBLE | DTS_SHOWNONE,
 		m_position.x, m_position.y,
 		m_size.x, m_size.y,
-		hwndWindow,
+		m_hwndDlg,
 		NULL,
 		HINST_THISCOMPONENT,
 		NULL
 	);
+	if (!m_hwnd) {
+		OutputDebugString(TEXT("Failed to creat datepicker window\n"));
+	}
 
 	SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);
 }

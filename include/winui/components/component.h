@@ -38,10 +38,15 @@ namespace winui {
 		void AddEventListener(void (*event)());
 
 		void (*m_event_listener)();
+
+	protected:
+		BOOL InitControl(DWORD control);
+
 	protected:
 		util::Vector2i m_size;
 		util::Vector2i m_position;
 		HWND m_hwnd;
+		HWND m_hwndDlg;
 	};
 }
 

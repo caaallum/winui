@@ -17,19 +17,20 @@
 
 #include <winui/stdafx.h>
 #include <winui/components/component.h>
-#include <winui/components/textfield.h>
+#include <winui/components/textarea.h>
 
-winui::TextField::TextField() :
-	Component({ 100, 20 }, { 0, 0 }) {
+winui::TextArea::TextArea() :
+	Component({ 100, 100 }, { 0, 0 }) {
 
 }
 
-winui::TextField::TextField(util::Vector2i size, util::Vector2i position) :
+winui::TextArea::TextArea(util::Vector2i size, util::Vector2i position) :
 	Component(size, position) {
+
 }
 
 void
-winui::TextField::SetValue(const std::string& value) {
+winui::TextArea::SetValue(const std::string& value) {
 	if (!m_hwnd) {
 		return;
 	}
@@ -37,8 +38,8 @@ winui::TextField::SetValue(const std::string& value) {
 	SetWindowText(m_hwnd, value.c_str());
 }
 
-std::string 
-winui::TextField::GetValue() const {
+std::string
+winui::TextArea::GetValue() const {
 	if (!m_hwnd) {
 		return {};
 	}
@@ -52,7 +53,7 @@ winui::TextField::GetValue() const {
 }
 
 void
-winui::TextField::Clear() {
+winui::TextArea::Clear() {
 	if (!m_hwnd) {
 		return;
 	}
@@ -60,13 +61,14 @@ winui::TextField::Clear() {
 	SetValue("");
 }
 
-
 void
-winui::TextField::Draw(HWND hwndWindow) {
+winui::TextArea::Draw(HWND hwndWindow) {
 	m_hwnd = CreateWindow(
 		"",
 		NULL,
-		WS_VISIBLE | WS_BORDER | WS_CHILD | WS_TABSTOP,
+		WS_VISIBLE | WS_BORDER | WS_CHILD | WS_TABSTOP |
+		ES_LEFT | ES_AUTOVSCROLL | ES_AUTOHSCROLL |
+		ES_MULTILINE | WS_VSCROLL | WS_HSCROLL,
 		m_position.x, m_position.y,
 		m_size.x, m_size.y,
 		hwndWindow,

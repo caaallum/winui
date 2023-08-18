@@ -15,19 +15,18 @@
  * along with winui. If not, see <https://www.gnu.org/licenses/>.
  **********************************************************/
 
-#ifndef __WINUI_H
-#define __WINUI_H
+#ifndef __DATEPICKER_H
+#define __DATEPICKER_H
 
-#include <winui/util/vector2.h>
+namespace winui {
+	class WINUI_API DatePicker : public Component {
+	public:
+		DatePicker();
 
-#include <winui/stdafx.h>
+		DatePicker(util::Vector2i size, util::Vector2i position);
 
-#include <winui/components/component.h>
-#include <winui/components/window.h>
-#include <winui/components/button.h>
-#include <winui/components/label.h>
-#include <winui/components/textfield.h>
-#include <winui/components/combobox.h>
-#include <winui/components/datepicker.h>
+		void Draw(HWND hwndWindow) override;
+	};
+}
 
-#endif /* __WINUI_H */
+#endif /* __DATEPICKER_H */

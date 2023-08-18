@@ -15,19 +15,23 @@
  * along with winui. If not, see <https://www.gnu.org/licenses/>.
  **********************************************************/
 
-#ifndef __WINUI_H
-#define __WINUI_H
+#ifndef __TEXT_AREA_H
+#define __TEXT_AREA_H
 
-#include <winui/util/vector2.h>
+namespace winui {
+	class WINUI_API TextArea : public Component {
+		TextArea();
 
-#include <winui/stdafx.h>
+		TextArea(util::Vector2i size, util::Vector2i position);
 
-#include <winui/components/component.h>
-#include <winui/components/window.h>
-#include <winui/components/button.h>
-#include <winui/components/label.h>
-#include <winui/components/textfield.h>
-#include <winui/components/combobox.h>
-#include <winui/components/datepicker.h>
+		void SetValue(const std::string& value);
 
-#endif /* __WINUI_H */
+		std::string GetValue() const;
+
+		void Clear();
+
+		void Draw(HWND hwndFrame) override;
+	};
+}
+
+#endif /* __TEXTAREA_H */

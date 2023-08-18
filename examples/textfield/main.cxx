@@ -23,8 +23,10 @@ WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ PSTR pC
 {
 	winui::Window window(hInstance, "TextField", winui::util::Vector2i(800, 600));
 
-	winui::TextField text_field({ 100, 20 }, { 50, 50 });
-	text_field.Draw(window.GetHandle());
+	/*winui::TextField text_field({ 100, 20 }, { 50, 50 });
+	text_field.Draw(window.GetHandle());*/
+	winui::DatePicker date;
+	date.Draw(window.GetHandle());
 
 	window.Show();
 }

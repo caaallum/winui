@@ -17,6 +17,9 @@
 
 #include <winui/stdafx.h>
 #include <winui/components/component.h>
+#include <commctrl.h>
+
+#pragma comment(lib, "Comctl32.lib")
 
 winui::Component::Component(util::Vector2i size, util::Vector2i position) :
 	m_size(size),
@@ -66,4 +69,14 @@ winui::Component::GetSize() const {
 void
 winui::Component::AddEventListener(void (*event)()) {
 	m_event_listener = event;
+}
+
+BOOL
+winui::Component::InitControl(DWORD control) {
+	INITCOMMONCONTROLSEX icex = {0};
+
+	icex.dwSize = sizeof(icex);
+	icex.dwICC = control;
+
+	return InitCommonControlsEx(&icex);
 }
