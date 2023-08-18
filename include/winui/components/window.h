@@ -27,6 +27,8 @@ namespace winui {
 
         HWND GetHandle() const;
 
+        util::Vector2i GetSize() const;
+
     private:
         void InitWindow();
 

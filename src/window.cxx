@@ -40,6 +40,11 @@ winui::Window::GetHandle() const {
 	return m_hwnd;
 }
 
+winui::util::Vector2i 
+winui::Window::GetSize() const {
+	return m_size;
+}
+
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     switch (uMsg)
     {
