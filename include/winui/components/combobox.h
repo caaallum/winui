@@ -37,7 +37,7 @@ namespace winui {
 
 		void AddOptions(const std::vector<std::string>& options);
 
-		void Draw(HWND hwndFrame) override;
+		void Draw(HWND hwndWindow) override;
 	};
 }
 
