@@ -37,12 +37,12 @@ INT_PTR Dlgproc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 void
 winui::DatePicker::Draw(HWND hwndWindow) {
 	if (!InitControl(ICC_DATE_CLASSES)) {
-		OutputDebugString("Failed to init date control\n");
+		OUTPUT_LAST_ERROR
 	}
 
 	m_hwndDlg = CreateDialog(HINST_THISCOMPONENT, MAKEINTRESOURCE(RT_DIALOG), hwndWindow, Dlgproc);
 	if (!m_hwndDlg) {
-		OutputDebugString(TEXT("Failed to create datepicker dialog\n"));
+		OUTPUT_LAST_ERROR
 	}
 
 	m_hwnd = CreateWindowEx(0,
@@ -57,7 +57,7 @@ winui::DatePicker::Draw(HWND hwndWindow) {
 		NULL
 	);
 	if (!m_hwnd) {
-		OutputDebugString(TEXT("Failed to creat datepicker window\n"));
+		OUTPUT_LAST_ERROR
 	}
 
 	SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);

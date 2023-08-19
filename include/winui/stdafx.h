@@ -35,4 +35,15 @@ EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 #define HINST_THISCOMPONENT ((HINSTANCE)&__ImageBase)
 #endif
 
+#ifdef _DEBUG
+#define OUTPUT_LAST_ERROR \
+	{ \
+		TCHAR err[256];\
+		FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), err, 255, NULL); \
+		OutputDebugString(err); \
+	}
+#else
+#define OUTPUT_LAST_ERROR
+#endif /* DEBUG */
+
 #endif /* __STDAFX_H */

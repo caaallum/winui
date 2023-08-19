@@ -33,7 +33,7 @@ winui::Label::Label(const std::string& text, util::Vector2i size, util::Vector2i
 void
 winui::Label::Draw(HWND hwndWindow) {
 	m_hwnd = CreateWindow(
-		"LABEL",
+		"STATIC",
 		m_text.c_str(),
 		WS_VISIBLE | WS_CHILD,
 		m_position.x, m_position.y, 
@@ -43,6 +43,8 @@ winui::Label::Draw(HWND hwndWindow) {
 		HINST_THISCOMPONENT,
 		NULL
 	);
+
+	OUTPUT_LAST_ERROR
 
 	SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);
 }

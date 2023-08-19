@@ -105,5 +105,7 @@ winui::ComboBox::Draw(HWND hwndWindow) {
 		NULL
 	);
 
+	OUTPUT_LAST_ERROR
+
 	SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);
 }

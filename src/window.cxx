@@ -115,6 +115,8 @@ winui::Window::InitWindow() {
 
 	RegisterClassEx(&m_wc);
 
+	OUTPUT_LAST_ERROR
+
 	m_hwnd = CreateWindowEx(
 		0,
 		CLASS_NAME,
@@ -127,6 +129,8 @@ winui::Window::InitWindow() {
 		m_instance,
 		NULL
 	);
+
+	OUTPUT_LAST_ERROR
 
 	SetTimer(m_hwnd, 0, 100, (TIMERPROC)NULL);
 

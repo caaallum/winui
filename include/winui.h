@@ -28,6 +28,5 @@
 #include <winui/components/label.h>
 #include <winui/components/textfield.h>
 #include <winui/components/combobox.h>
-#include <winui/components/datepicker.h>
 
 #endif /* __WINUI_H */
