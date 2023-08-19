@@ -29,6 +29,8 @@ namespace winui {
 
 		int GetSelectedIndex() const;
 
+		void SetSelectedIndex(int index);
+
 		void RemoveOption(int index);
 
 		void RemoveAllOptions();

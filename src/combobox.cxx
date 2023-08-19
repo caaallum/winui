@@ -54,6 +54,15 @@ winui::ComboBox::GetSelectedIndex() const {
 }
 
 void
+winui::ComboBox::SetSelectedIndex(int index) {
+	if (!m_hwnd) {
+		return;
+	}
+
+	SendMessage(m_hwnd, (UINT)CB_SETCURSEL, (WPARAM)index, (LPARAM)0);
+}
+
+void
 winui::ComboBox::RemoveOption(int index) {
 	if (!m_hwnd) {
 		return;
