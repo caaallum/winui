@@ -31,6 +31,8 @@ namespace winui {
 
 		void SetSelectedIndex(int index);
 
+		void SetSelectedItem(const std::string& item);
+
 		void RemoveOption(int index);
 
 		void RemoveAllOptions();

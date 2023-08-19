@@ -63,6 +63,15 @@ winui::ComboBox::SetSelectedIndex(int index) {
 }
 
 void
+winui::ComboBox::SetSelectedItem(const std::string& item) {
+	if (!m_hwnd) {
+		return;
+	}
+
+	SendMessage(m_hwnd, (UINT)CB_SELECTSTRING, (WPARAM)0, (LPARAM)item.c_str());
+}
+
+void
 winui::ComboBox::RemoveOption(int index) {
 	if (!m_hwnd) {
 		return;
