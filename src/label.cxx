@@ -17,7 +17,13 @@
 
 #include <winui/stdafx.h>
 #include <winui/components/component.h>
-#include <winui/components/label.h>
+#include <winui/components/label.h>i
+
+winui::Label::Label() :
+	m_text(""),
+	Component({ 100, 20 }, { 0,0 }) {
+
+}
 
 winui::Label::Label(const std::string& text) :
 	m_text(text),
