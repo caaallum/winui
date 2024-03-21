@@ -27,6 +27,10 @@ namespace winui {
 
 		void Draw(HWND hwndFrame) override;
 
+		void SetText(const std::string& text);
+
+		std::string GetText() const;
+
 	private:
 		std::string m_text;
 	};

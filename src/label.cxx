@@ -48,3 +48,15 @@ winui::Label::Draw(HWND hwndWindow) {
 
 	SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);
 }
+
+void
+winui::Label::SetText(const std::string& text) {
+	m_text = text;
+
+	SetWindowText(m_hwnd, m_text.c_str());
+}
+
+std::string
+winui::Label::GetText() const {
+	return m_text;
+}
