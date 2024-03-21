@@ -29,6 +29,8 @@ namespace winui {
 
         util::Vector2i GetSize() const;
 
+        void Draw(Component *c);
+
     private:
         void InitWindow();
 

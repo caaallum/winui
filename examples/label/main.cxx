@@ -24,7 +24,8 @@ WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ PSTR pC
 	winui::Window window(hInstance, "Label", winui::util::Vector2i(800, 600));
 
 	winui::Label label("Text", { 100, 20 }, { 50, 50 });
-	label.Draw(window.GetHandle());
+
+	window.Draw(&label);
 
 	window.Show();
 }

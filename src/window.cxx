@@ -17,6 +17,7 @@
 
 #include <winui/stdafx.h>
 #include <winui/util/vector2.h>
+#include <winui/components/component.h>
 #include <winui/components/window.h>
 
 #include <winui/components/component.h>
@@ -43,6 +44,11 @@ winui::Window::GetHandle() const {
 winui::util::Vector2i 
 winui::Window::GetSize() const {
 	return m_size;
+}
+
+void
+winui::Window::Draw(winui::Component *c) {
+	c->Draw(m_hwnd);
 }
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
