@@ -21,7 +21,9 @@
 namespace winui {
 	class WINUI_API Label : public Component {
 	public:
-		Label(const std::string& text);
+		Label() = default;
+
+		Label(const std::string& text6);
 
 		Label(const std::string& text, util::Vector2i size, util::Vector2i position);
 
