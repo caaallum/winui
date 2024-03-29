@@ -31,6 +31,7 @@ winui::Component::Component(util::Vector2i size, util::Vector2i position) :
 
 void
 winui::Component::SetPosition(util::Vector2i position) {
+	m_position = position;
 	if (!m_hwnd) {
 		return;
 	}
@@ -45,6 +46,7 @@ winui::Component::SetPosition(util::Vector2i position) {
 
 void
 winui::Component::SetSize(util::Vector2i size) {
+	m_size = size;
 	if (!m_hwnd) {
 		return;
 	}

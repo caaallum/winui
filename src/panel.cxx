@@ -15,19 +15,24 @@
  * along with winui. If not, see <https://www.gnu.org/licenses/>.
  **********************************************************/
 
-#ifndef __WINUI_H
-#define __WINUI_H
-
-#include <winui/util/vector2.h>
-
 #include <winui/stdafx.h>
-
 #include <winui/components/component.h>
-#include <winui/components/window.h>
-#include <winui/components/button.h>
-#include <winui/components/label.h>
-#include <winui/components/textfield.h>
-#include <winui/components/combobox.h>
 #include <winui/components/panel.h>
+#include <sstream>
 
-#endif /* __WINUI_H */
+winui::Panel::Panel(util::Vector2i size, util::Vector2i position) :
+	Component(size, position) {
+}
+
+void
+winui::Panel::Draw(HWND hwndWindow) {
+	for (const auto& c : m_components) {
+		c->SetPosition(m_position + c->GetPosition());
+		c->Draw(hwndWindow);
+	}
+}
+
+void
+winui::Panel::AddComponent(Component *component) {
+	m_components.push_back(component);
+}

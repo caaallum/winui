@@ -18,6 +18,7 @@ file(GLOB
     src/checkbox.cxx
     src/textarea.cxx
     src/datepicker.cxx
+    src/panel.cxx
 
     src/dllmain.cxx
 )
@@ -41,6 +42,8 @@ file(GLOB
     include/winui/components/checkbox.h
     include/winui/components/textarea.h
     include/winui/components/datepicker.h
+    include/winui/components/panel.h
+    
     
     include/winui/util/vector2.h
 )
