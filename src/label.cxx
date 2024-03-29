@@ -17,7 +17,7 @@
 
 #include <winui/stdafx.h>
 #include <winui/components/component.h>
-#include <winui/components/label.h>i
+#include <winui/components/label.h>
 
 winui::Label::Label() :
 	m_text(""),
