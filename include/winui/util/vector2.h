@@ -32,6 +32,50 @@ namespace winui::util {
 
 		template <typename U>
 		Vector2(U x, U y) : x(static_cast<T>(x)), y(static_cast<T>(x)) {}
+
+		friend Vector2<T> operator+(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+			return Vector2<T>(lhs.x + rhs.x, lhs.y + rhs.y);
+		}
+
+		friend Vector2<T> operator-(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+			return Vector2<T>(lhs.x - rhs.x, lhs.y - rhs.y);
+		}
+
+		friend Vector2<T> operator*(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+			return Vector2<T>(lhs.x * rhs.x, lhs.y * rhs.y);
+		}
+
+		friend Vector2<T> operator/(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+			return Vector2<T>(lhs.x / rhs.x, lhs.y / rhs.y);
+		}
+
+		friend Vector2<T> operator+=(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+			lhs.x += rhs.x;
+			lhs.y += rhs.y;
+
+			return lhs;
+		}
+
+		friend Vector2<T> operator-=(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+			lhs.x -= rhs.x;
+			lhs.y -= rhs.y;
+
+			return lhs;
+		}
+
+		friend Vector2<T> operator*=(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+			lhs.x *= rhs.x;
+			lhs.y *= rhs.y;
+
+			return lhs;
+		}
+
+		friend Vector2<T> operator/=(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+			lhs.x /= rhs.x;
+			lhs.y /= rhs.y;
+
+			return lhs;
+		}
 	};
 
 	typedef Vector2<int> Vector2i;
