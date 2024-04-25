@@ -19,6 +19,11 @@
 #include <winui/components/component.h>
 #include <winui/components/button.h>
 
+winui::Button::Button() :
+	Component({ 100, 200 }, { 0,0 }) {
+
+}
+
 winui::Button::Button(const std::string& title) :
 	m_title(title),
 	Component({ 100, 20 }, { 0, 0 }) {

@@ -21,6 +21,8 @@
 namespace winui {
 	class WINUI_API Button : public Component {
 	public:
+		Button();
+
 		Button(const std::string &title);
 
 		Button(const std::string &title, util::Vector2i size, util::Vector2i position);
